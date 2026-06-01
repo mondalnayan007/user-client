@@ -1,9 +1,11 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 
 const Users = ({userPromise}) => {
 
     const usersData = use(userPromise);
-    console.log(usersData);
+       console.log(usersData); 
+    const [users,setUsers] = useState(usersData)
+    
 
     const handleAddUser =(e)=>{
        e.preventDefault();
@@ -22,23 +24,32 @@ const Users = ({userPromise}) => {
         },
         body: JSON.stringify(newUser)
        })
+       .then(res=>res.json())
+       .then(data =>{
+           const newUsers = [...usersData,data]
+           setUsers(newUsers);
+           e.target.reset();
+        //    console.log('Data after post',data);
+       })
 
     }
     return (
         <div>
-           {
-            usersData.map(user => <ul>
-                <li>{user.name}</li>
-                
-            </ul>)
-           }
 
-           <form onSubmit={handleAddUser}>
+             <form onSubmit={handleAddUser}>
                <input type="text" name="name" id="" placeholder='Enter user name'/><br />
                <input type="text" name="email" id="" placeholder='Enter user email'/><br />
                <input type="text" name="role" id="" placeholder='Enter user role'/><br />
                <button type="submit">Add user</button>
            </form>
+           {
+            users.map(user => <ul>
+                <li>{user.name}</li>
+                
+            </ul>)
+           }
+
+          
         </div>
     );
 };
