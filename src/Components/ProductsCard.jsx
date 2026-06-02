@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductsCard = ({ product }) => {
     // Uporer data structure theke properties destructuring
-    const { title, description, price, image_url } = product;
+    const { title, description, price,url } = product;
 
     return (
         /* Minimalist Card Container for White Background */
@@ -11,7 +11,7 @@ const ProductsCard = ({ product }) => {
             {/* Product Image Section */}
             <div className="relative h-56 w-full overflow-hidden bg-slate-50">
                 <img 
-                    src={image_url} 
+                    src={url} 
                     alt={title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
