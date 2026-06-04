@@ -3,7 +3,7 @@ import React, { use, useState } from 'react';
 const Users = ({userPromise}) => {
 
     const usersData = use(userPromise);
-       console.log(usersData); 
+       
     const [users,setUsers] = useState(usersData)
     
 
@@ -13,7 +13,7 @@ const Users = ({userPromise}) => {
        const email = e.target.email.value;
        const role = e.target.role.value;
 
-       console.log(name,role,email);
+      
 
        const newUser = {name,email,role};
 
@@ -34,9 +34,25 @@ const Users = ({userPromise}) => {
        })
 
     }
+
+
+    const handleDeleteUser =(id)=>{
+
+        fetch(`http://localhost:4000/users/${id}`,{
+            method: 'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data =>{
+            const remaining = users.filter(user=>user._id !== id);
+            setUsers(remaining);
+        })
+        
+    }
+
+
     return (
         <div>
-
+              <p>users: {users.length}</p>
              <form onSubmit={handleAddUser}>
                <input type="text" name="name" id="" required placeholder='Enter user name'/><br />
                <input type="text" name="email" id="" required placeholder='Enter user email'/><br />
@@ -46,7 +62,7 @@ const Users = ({userPromise}) => {
            {
             users.map(user => <ul className='flex justify-center gap-2 '>
                 <li>{user.name}</li>
-                <button className='cursor-pointer'>X</button>
+                <button onClick={()=>handleDeleteUser(user._id)} className='cursor-pointer'>X</button>
                 
             </ul>)
            }

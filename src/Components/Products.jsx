@@ -17,7 +17,7 @@ const Products = ({ productsPromise }) => {
        const description = e.target.description.value;
        const price = e.target.price.value;
        const url = e.target.url.value;
-       console.log(title,description,price,url,typeof(price));
+     
 
        const newProduct = {title,description,price,url};
 
@@ -39,7 +39,7 @@ const Products = ({ productsPromise }) => {
     }
 
     
-    console.log(products);
+   
     return (
         <div>
             <div className='grid grid-cols-3 gap-3'>
