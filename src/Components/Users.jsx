@@ -1,4 +1,5 @@
 import React, { use, useState } from 'react';
+import { Link } from 'react-router';
 
 const Users = ({userPromise}) => {
 
@@ -62,6 +63,7 @@ const Users = ({userPromise}) => {
            {
             users.map(user => <ul className='flex justify-center gap-2 '>
                 <li>{user.name}</li>
+                <Link className='text-blue-500' to={`/users/${user._id}`}>Details</Link>
                 <button onClick={()=>handleDeleteUser(user._id)} className='cursor-pointer'>X</button>
                 
             </ul>)
