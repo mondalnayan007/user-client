@@ -26,7 +26,8 @@ const Users = ({userPromise}) => {
        })
        .then(res=>res.json())
        .then(data =>{
-           const newUsers = [...usersData,data]
+        newUser._id = data.insertedId;
+           const newUsers = [...users,newUser]
            setUsers(newUsers);
            e.target.reset();
         //    console.log('Data after post',data);
@@ -37,14 +38,15 @@ const Users = ({userPromise}) => {
         <div>
 
              <form onSubmit={handleAddUser}>
-               <input type="text" name="name" id="" placeholder='Enter user name'/><br />
-               <input type="text" name="email" id="" placeholder='Enter user email'/><br />
-               <input type="text" name="role" id="" placeholder='Enter user role'/><br />
-               <button type="submit">Add user</button>
+               <input type="text" name="name" id="" required placeholder='Enter user name'/><br />
+               <input type="text" name="email" id="" required placeholder='Enter user email'/><br />
+               <input type="text" name="role" id="" required placeholder='Enter user role'/><br />
+               <button type="submit" className='px-4 py-2 border rounded cursor-pointer'>Add user</button>
            </form>
            {
-            users.map(user => <ul>
+            users.map(user => <ul className='flex justify-center gap-2 '>
                 <li>{user.name}</li>
+                <button className='cursor-pointer'>X</button>
                 
             </ul>)
            }

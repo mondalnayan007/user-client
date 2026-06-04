@@ -64,6 +64,7 @@ const Products = ({ productsPromise }) => {
                         <input
                             type="text"
                             name="title"
+                            required
                             placeholder="Enter the product title"
                             className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-800 placeholder-slate-400 text-sm font-medium transition-all duration-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5"
                         />
@@ -75,6 +76,7 @@ const Products = ({ productsPromise }) => {
                         <input
                             type="text"
                             name="description"
+                            required
                             placeholder="Enter the product Description"
                             className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-800 placeholder-slate-400 text-sm font-medium transition-all duration-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5"
                         />
@@ -86,6 +88,7 @@ const Products = ({ productsPromise }) => {
                         <input
                             type="number"
                             name="price"
+                            required
                             placeholder="Enter the product price"
                             className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-800 placeholder-slate-400 text-sm font-medium transition-all duration-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5"
                         />
@@ -97,6 +100,7 @@ const Products = ({ productsPromise }) => {
                         <input
                             type="text"
                             name="url"
+                            required
                             placeholder="Enter the product image URL"
                             className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-800 placeholder-slate-400 text-sm font-medium transition-all duration-200 outline-none focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5"
                         />
