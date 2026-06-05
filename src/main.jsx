@@ -7,6 +7,7 @@ import './index.css'
 import App from './App.jsx'
 import UserDetails from './Components/UserDetails.jsx';
 import UpdateUser from './Components/UpdateUser.jsx'
+import UpdateProduct from './Components/UpdateProduct.jsx';
 
 
 
@@ -26,6 +27,12 @@ const router = createBrowserRouter([
     path:'/update/:id',
     loader : ({params})=>fetch(`http://localhost:4000/users/${params.id}`),
     Component: UpdateUser 
+
+  },
+  {
+    path:'/update-product/:id',
+    loader :({params})=>fetch(`http://localhost:4000/products/${params.id}`),
+    Component: UpdateProduct
 
   }
 ]);

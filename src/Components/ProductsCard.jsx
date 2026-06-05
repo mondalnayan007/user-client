@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ProductsCard = ({ product }) => {
     // Uporer data structure theke properties destructuring
+    
     const { title, description, price,url } = product;
+
+
+  
+
 
     return (
         /* Minimalist Card Container for White Background */
@@ -39,6 +45,9 @@ const ProductsCard = ({ product }) => {
                     </div>
                     
                     {/* Minimalist Action Button */}
+                    <Link to={`/update-product/${product._id}`}   className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-lg transition-all duration-200 active:scale-95 focus:outline-none shadow-sm">
+                        Edit Product
+                    </Link>
                     <button className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-lg transition-all duration-200 active:scale-95 focus:outline-none shadow-sm">
                         Add to Cart
                     </button>
