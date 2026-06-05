@@ -12,8 +12,22 @@ const UpdateUser = () => {
     const email = e.target.email.value;
     const role = e.target.role.value;
     console.log(name,email,role);
+   const updatedUser = {name,email,role};
 
+   fetch(`http://localhost:4000/users/${userData._id}`,{
+    method: "PATCH",
+    headers:{
+        'Content-Type': "application/json"
+    },
+    body: JSON.stringify(updatedUser)
+
+   })
+   .then(res=> res.json())
+   .then(data =>{
+    console.log('after update data',data);
     
+   })
+
 
     }
 
